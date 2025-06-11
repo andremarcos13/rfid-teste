@@ -18,8 +18,8 @@ export const OrderPreview: React.FC<OrderPreviewProps> = ({ orderData, qrCode, o
   };
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 p-8">
-      <div className="max-w-6xl mx-auto h-full flex flex-col">
+    <div className="h-screen w-full bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 flex items-center justify-center p-8">
+      <div className="w-full max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
         {/* Header */}
         <div className="bg-white rounded-t-3xl p-8">
           <div className="flex items-center justify-between mb-6">

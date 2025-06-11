@@ -59,8 +59,8 @@ export const QRCodeScanner: React.FC<QRCodeScannerProps> = ({ userName, onQRScan
   };
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 p-8">
-      <div className="max-w-6xl mx-auto h-full flex flex-col">
+    <div className="h-screen w-full bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 flex items-center justify-center p-8">
+      <div className="w-full max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
         {/* Header */}
         <div className="bg-white rounded-t-3xl p-8 text-center">
           <div className="w-20 h-20 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -180,8 +180,8 @@ export const QRCodeScanner: React.FC<QRCodeScannerProps> = ({ userName, onQRScan
                       <p className="text-base text-gray-500">{order.items.length} itens • {order.estimatedTime}</p>
                     </div>
                     <div className={`px-3 py-1 rounded-full text-sm font-medium ${order.priority === 'Alta' ? 'bg-red-100 text-red-700' :
-                        order.priority === 'Média' ? 'bg-yellow-100 text-yellow-700' :
-                          'bg-green-100 text-green-700'
+                      order.priority === 'Média' ? 'bg-yellow-100 text-yellow-700' :
+                        'bg-green-100 text-green-700'
                       }`}>
                       {order.priority}
                     </div>

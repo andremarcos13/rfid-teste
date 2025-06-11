@@ -47,7 +47,7 @@ export const UserIdentification: React.FC<UserIdentificationProps> = ({ onUserId
   };
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 flex items-center justify-center p-8">
+    <div className="h-screen w-full bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 flex items-center justify-center p-8">
       <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl overflow-hidden">
         {/* Header */}
         <div className="bg-gradient-to-r from-primary-500 to-accent-500 p-12 text-center">

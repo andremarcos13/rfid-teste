@@ -94,8 +94,8 @@ export const RFIDMap: React.FC<RFIDMapProps> = ({
   };
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 p-8">
-      <div className="max-w-4xl mx-auto h-full flex flex-col">
+    <div className="h-screen w-full bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 flex items-center justify-center p-8">
+      <div className="w-full max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
         {/* Header */}
         <div className="bg-white rounded-t-3xl p-8">
           <div className="flex items-center gap-4 mb-6">
@@ -113,8 +113,8 @@ export const RFIDMap: React.FC<RFIDMapProps> = ({
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className={`w-4 h-4 rounded-full ${isComplete ? 'bg-success-500' :
-                    rfidDetections.length > 0 ? 'bg-primary-500 animate-pulse' :
-                      'bg-gray-400'
+                  rfidDetections.length > 0 ? 'bg-primary-500 animate-pulse' :
+                    'bg-gray-400'
                   }`}></div>
                 <span className="text-xl font-medium text-gray-700">
                   {getStatusMessage()}
@@ -151,8 +151,8 @@ export const RFIDMap: React.FC<RFIDMapProps> = ({
                 <div
                   key={itemId}
                   className={`flex items-center gap-4 p-6 rounded-2xl transition-all duration-300 ${isDetected
-                      ? 'bg-success-50 border-2 border-success-200'
-                      : 'bg-white border-2 border-gray-200'
+                    ? 'bg-success-50 border-2 border-success-200'
+                    : 'bg-white border-2 border-gray-200'
                     }`}
                 >
                   <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${isDetected ? 'bg-success-500' : 'bg-gray-300'

@@ -7,10 +7,10 @@ interface PickingInterfaceProps {
   onPickingComplete: () => void;
 }
 
-export const PickingInterface: React.FC<PickingInterfaceProps> = ({ 
-  orderData, 
-  onItemCollected, 
-  onPickingComplete 
+export const PickingInterface: React.FC<PickingInterfaceProps> = ({
+  orderData,
+  onItemCollected,
+  onPickingComplete
 }) => {
   const [collectedItems, setCollectedItems] = useState<string[]>([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
@@ -32,12 +32,12 @@ export const PickingInterface: React.FC<PickingInterfaceProps> = ({
 
   const handleCollectItem = (itemId: string) => {
     setIsCollecting(true);
-    
+
     setTimeout(() => {
       setCollectedItems(prev => [...prev, itemId]);
       onItemCollected(itemId);
       setIsCollecting(false);
-      
+
       if (currentItemIndex < orderData.items.length - 1) {
         setCurrentItemIndex(prev => prev + 1);
       } else {
@@ -63,30 +63,30 @@ export const PickingInterface: React.FC<PickingInterfaceProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 p-4">
-      <div className="max-w-md mx-auto">
+    <div className="h-screen w-full bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900 flex items-center justify-center p-8">
+      <div className="w-full max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
         {/* Header */}
-        <div className="bg-white rounded-t-2xl p-6">
-          <div className="flex items-center justify-between mb-4">
+        <div className="bg-white p-8">
+          <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Picking Ativo</h1>
-              <p className="text-gray-600">{orderData.id}</p>
+              <h1 className="text-3xl font-bold text-gray-900">Picking Ativo</h1>
+              <p className="text-xl text-gray-600">{orderData.id}</p>
             </div>
             <div className="text-right">
-              <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
-                <Clock className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-lg text-gray-600 mb-1">
+                <Clock className="w-5 h-5" />
                 <span>{formatTime(elapsedTime)}</span>
               </div>
-              <div className="text-sm font-medium text-gray-900">
+              <div className="text-lg font-medium text-gray-900">
                 {collectedItems.length}/{orderData.items.length} itens
               </div>
             </div>
           </div>
 
           {/* Progress Bar */}
-          <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
-            <div 
-              className="bg-gradient-to-r from-success-500 to-success-600 h-3 rounded-full transition-all duration-500"
+          <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
+            <div
+              className="bg-gradient-to-r from-success-500 to-success-600 h-4 rounded-full transition-all duration-500"
               style={{ width: `${(collectedItems.length / orderData.items.length) * 100}%` }}
             ></div>
           </div>
@@ -94,7 +94,7 @@ export const PickingInterface: React.FC<PickingInterfaceProps> = ({
           {/* Status */}
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-success-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-success-700">
+            <span className="text-lg font-medium text-success-700">
               {isComplete ? 'Coleta Concluída!' : 'Sistema Picking Light Ativo'}
             </span>
           </div>
@@ -158,25 +158,23 @@ export const PickingInterface: React.FC<PickingInterfaceProps> = ({
               {orderData.items.map((item: any, index: number) => {
                 const isCollected = collectedItems.includes(item.id);
                 const isCurrent = index === currentItemIndex && !isCollected;
-                
+
                 return (
-                  <div 
-                    key={item.id} 
-                    className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
-                      isCollected 
-                        ? 'bg-success-50 border-2 border-success-200' 
-                        : isCurrent 
-                        ? 'bg-primary-50 border-2 border-primary-200 animate-pulse' 
+                  <div
+                    key={item.id}
+                    className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${isCollected
+                      ? 'bg-success-50 border-2 border-success-200'
+                      : isCurrent
+                        ? 'bg-primary-50 border-2 border-primary-200 animate-pulse'
                         : 'bg-gray-50 border-2 border-gray-200'
-                    }`}
+                      }`}
                   >
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                      isCollected 
-                        ? 'bg-success-500' 
-                        : isCurrent 
-                        ? 'bg-primary-500' 
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${isCollected
+                      ? 'bg-success-500'
+                      : isCurrent
+                        ? 'bg-primary-500'
                         : 'bg-gray-300'
-                    }`}>
+                      }`}>
                       {isCollected ? (
                         <CheckCircle className="w-5 h-5 text-white" />
                       ) : (
