@@ -145,9 +145,12 @@ export default function BoxCounterGrid() {
                     </div>
                 ))}
             </div>
-            <div className="text-xl font-bold text-indigo-700">
-                Total de caixas: {boxes.length}
-            </div>
+            {/* Total de caixas só aparece ao final da animação */}
+            {showCircles && visibleCircles >= boxes.length && (
+                <div className="text-xl font-bold text-indigo-700">
+                    Total de caixas: {boxes.length}
+                </div>
+            )}
             {/* Botão para recomeçar animação */}
             {!isScanning && !showCircles && (
                 <button
