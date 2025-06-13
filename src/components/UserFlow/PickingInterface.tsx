@@ -21,6 +21,9 @@ export const PickingInterface: React.FC<PickingInterfaceProps> = ({
   const currentItem = orderData.items[currentItemIndex];
   const isComplete = collectedItems.length === orderData.items.length;
 
+  const shelfWidth = 260;  // ajuste conforme seu layout
+  const shelfHeight = 90;  // ajuste conforme seu layout
+
   // Timer
   useEffect(() => {
     const interval = setInterval(() => {
